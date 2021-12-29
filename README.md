@@ -34,6 +34,14 @@ Otherwise, they will be placed in a random but elegant manner.
 ## Download and run - instructions.
 Download the folder and open a new class named as you wish, load a Jason file which containing graph data (vertices and edges), initialize it as 'GraphAlgo' object, then you can run algorithms on thr graph and edit it, by saying above in 'Main Functions'.
 
-## Class diagram.
+## Run Time.
+For more information on runtime and comparing the runtime to the Java project (Ex2_OOP), visit our wiki page!  
+--> https://github.com/ShaniVahav/Ex3_OOP/wiki
+
+## Class Diagram.
 ![image](https://user-images.githubusercontent.com/92265738/147703008-dce8e5fe-6ab3-46e3-afc8-f80b934c03e4.png)
+
+
+
+
 
