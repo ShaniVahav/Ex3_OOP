@@ -228,7 +228,6 @@ class GraphAlgo(GraphAlgoInterface):
                 Xs[str(node.key)] = node.pos[0]
                 Ys[str(node.key)] = node.pos[1]
                 checkMinMax(Xs, Ys, node.key, xScale, yScale)
-
             else:
                 xdata = uniform(35.212111165456015, 32.10788938151261)
                 ydata = uniform(35.212111165456015, 32.10788938151261)

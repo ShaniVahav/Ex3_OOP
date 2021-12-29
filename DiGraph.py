@@ -1,3 +1,5 @@
+from abc import ABC
+
 from src.GraphInterface import GraphInterface
 from src.Node import Node
 
@@ -5,28 +7,28 @@ from src.Node import Node
 class DiGraph(GraphInterface):
 
     def __init__(self):
+        self.mc = 0
         self.nodes = {}
         self.edges = {}
         self.oposite = {}
         self.largestIndex = -1
         self.numberOfNodes = 0
         self.numberOfEdges = 0
-        self.mc = 0
+
+    def all_out_edges_of_node(self, id1: int) -> dict:
+        return self.edges[str(id1)]
+
+    def all_in_edges_of_node(self, id1: int) -> dict:
+        return self.oposite[str(id1)]
+
+    def get_all_v(self) -> dict:
+        return self.nodes
 
     def v_size(self) -> int:
         return self.numberOfNodes
 
     def e_size(self) -> int:
         return self.numberOfEdges
-
-    def get_all_v(self) -> dict:
-        return self.nodes
-
-    def all_in_edges_of_node(self, id1: int) -> dict:
-        return self.oposite.get(id1)
-
-    def all_out_edges_of_node(self, id1: int) -> dict:
-        return self.edges.get(id1)
 
     def get_mc(self) -> int:
         return self.mc
@@ -35,10 +37,10 @@ class DiGraph(GraphInterface):
         try:
             if (self.nodes.get(str(id1)) is None) or (self.nodes.get(str(id2)) is None):
                 raise NotImplementedError
-            if self.edges.get(str(id1)).get(str(id2)) is not None:
+            if self.all_out_edges_of_node(id1).get(str(id2)) is not None:
                 raise NotImplementedError
-            self.edges[str(id1)][str(id2)] = (str(id2), weight)
-            self.oposite[str(id2)][str(id1)] = (str(id2), weight)
+            self.edges[str(id1)][str(id2)] = (id2, weight)
+            self.oposite[str(id2)][str(id1)] = (id2, weight)
             self.numberOfEdges += 1
             self.mc += 1
             return True
@@ -75,13 +77,13 @@ class DiGraph(GraphInterface):
             if self.largestIndex == node_id:
                 max = 0
                 for nodeId in self.get_all_v():
-                    if nodeId > max:
+                    if (nodeId > max):
                         max = nodeId
                 self.largestIndex = max
-            self.numberOfNodes -= 1
-            self.mc += 1
+                self.numberOfNodes -= 1
+                self.mc += 1
             return True
-        except (NotImplementedError, KeyError):
+        except KeyError:
             return False
 
     def remove_edge(self, node_id1: int, node_id2: int) -> bool:
@@ -91,14 +93,5 @@ class DiGraph(GraphInterface):
             self.numberOfEdges -= 1
             self.mc += 1
             return True
-        except (KeyError, TypeError, NotImplementedError):
+        except KeyError:
             return False
-
-    def getGraph(self):
-        return self
-
-    def getEdges(self):
-        return self.edges
-
-    def getOposite(self):
-        return self.oposite
