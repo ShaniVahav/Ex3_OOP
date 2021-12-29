@@ -23,10 +23,10 @@ Returns the shortest path from node A to node B using Dijkstra's Algorithm.
 ### TSP(nodes):
 Finds the shortest path that visits all the nodes in the list 'nodes'.
 
-### centerPoint:
+### centerPoint():
 Finds the node that has the shortest distance to it's farthest node.
 
-### plot_graph:
+### plot_graph():
 Plots the graph.
 If the nodes have a position, the nodes will be placed there.
 Otherwise, they will be placed in a random but elegant manner.
