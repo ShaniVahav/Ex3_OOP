@@ -7,7 +7,6 @@ In addition to all the edits, various algorithms can be performed on the graph, 
 the shortest path between two vertices, and even the traveling salesman problem (ie: https://en.wikipedia.org/wiki/Travelling_salesman_problem).
 
 ## Literature review.
-
 In our project we mainly based on **Ex2_OOP project**, in which we used several sources, some of which are:
 1. https://www.youtube.com/watch?v=EFg3u_E6eHU
 2. https://www.geeksforgeeks.org/traveling-salesman-problem-tsp-implementation/
