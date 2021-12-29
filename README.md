@@ -33,3 +33,5 @@ Otherwise, they will be placed in a random but elegant manner.
 
 
 ## Class diagram.
+![image](https://user-images.githubusercontent.com/92265738/147703008-dce8e5fe-6ab3-46e3-afc8-f80b934c03e4.png)
+
