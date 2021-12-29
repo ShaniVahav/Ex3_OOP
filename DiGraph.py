@@ -6,7 +6,7 @@ from src.Node import Node
 
 class DiGraph(GraphInterface):
 
-    def __init__(self):
+     def __init__(self):
         self.mc = 0
         self.nodes = {}
         self.edges = {}
