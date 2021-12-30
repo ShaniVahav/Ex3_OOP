@@ -1,11 +1,21 @@
 import unittest
 from unittest import TestCase
 
+from src import main
 from src.DiGraph import DiGraph
 from src.GraphAlgo import GraphAlgo
 
 
 class TestGraphAlgo(TestCase):
+
+    @staticmethod
+    def main():
+        main.check()
+        main.check0()
+        main.check1()
+        main.check2()
+        main.check3()
+
     def test_get_graph(self):
         GraphA = DiGraph()
         GraphA.add_node(1)
@@ -47,7 +57,7 @@ class TestGraphAlgo(TestCase):
         graphAlgo.get_graph().remove_edge(120, 22)
         graphAlgo.get_graph().remove_edge(16, 15)
         tuple = graphAlgo.TSP([8, 9, 10])
-        self.assertTrue(tuple != None)
+        self.assertTrue(tuple is not None)
 
     def test_center_point(self):
         graphAlgo = GraphAlgo()

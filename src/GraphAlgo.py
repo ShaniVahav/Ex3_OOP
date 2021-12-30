@@ -126,7 +126,7 @@ class GraphAlgo(GraphAlgoInterface):
         ansNodeKey = -1
         for nodeId in node_lst:
             node = self.graph.get_all_v().get(str(nodeId))  # node - > node data for knowing tag
-            if distance[nodeId] < lowestValue and node.flag is False:
+            if distance[nodeId] < lowestValue and node.flag == False:
                 lowestValue = distance[nodeId]
                 ansNodeKey = nodeId
         ansNode = self.graph.get_all_v().get(str(ansNodeKey))
@@ -171,10 +171,10 @@ class GraphAlgo(GraphAlgoInterface):
 
     # ******************************************************************************#
     def TSP(self, node_lst: List[int]) -> (List[int], float):
-        choosenNodeIndex = -1
         copyList = copy.deepcopy(node_lst)
         ansList = []
         finalSum = sys.maxsize
+        choosenNodeIndex = -1
         for times in range(min(20, len(node_lst))):
             tempSum = 0
             tempList = []
@@ -183,9 +183,14 @@ class GraphAlgo(GraphAlgoInterface):
                 nodeFromList.flag = False
             if len(copyList) != 0:
                 choosenNodeIndex = random.choice(copyList)
-                print(choosenNodeIndex)
                 copyList.remove(choosenNodeIndex)
             listDistance = self.dijkstra(choosenNodeIndex)[1]
+            bool = True
+            for NodeIndex in node_lst:
+                if listDistance[NodeIndex] == sys.maxsize:
+                    bool = False
+            if bool is False:
+                continue
             choosenNode = self.graph.get_all_v().get(str(choosenNodeIndex))
             choosenNode.flag = True
             tempList.append(choosenNodeIndex)
